@@ -11,6 +11,9 @@ class PerFinManApp extends PolymerElement {
 
   ready() {
     $['newTransactionInput'].style.display = "none";
+    if (window.localStorage.containsKey("transactions")) {
+      loadTransactions();
+    }
   }
 
   toggleDrawer() {
@@ -28,6 +31,23 @@ class PerFinManApp extends PolymerElement {
     $['tran-note'].value = "";
   }
   
+  void saveTransactions() {
+    List<String> tranStr = new List();
+    transactions.forEach((tr){
+      tranStr.add(tr.jsonString);
+    });
+    window.localStorage["transactions"] = JSON.encode(tranStr); 
+  }
+  
+  void loadTransactions() {
+    String str = window.localStorage["transactions"];
+    List<String> tranStr = JSON.decode(str);
+    transactions = toObservable([]);
+    tranStr.forEach((tr){
+      transactions.add(new Transaction.fromJSON(tr));
+    });
+  }
+  
   saveTransaction() {
     num amount = double.parse($['tran-amount'].value);
     bool type = $['tran-type'].checked;
@@ -41,6 +61,8 @@ class PerFinManApp extends PolymerElement {
     $['toast'].text="Transaction added";
     $['toast'].show();
     hideNewTransactionInput();
+    //window.localStorage["transactions"] = tr.jsonString;
+    saveTransactions();
   }
 }
 
