@@ -26,6 +26,7 @@ class Transaction {
 
   Transaction(this.amount, this.date, this.note, this.categoryId);
 
+  ///Load category from JSON
   Transaction.fromJSON(String jsonString) {
     Map storedTransaction = JSON.decode(jsonString);
     this.note = storedTransaction['n'];
@@ -34,6 +35,7 @@ class Transaction {
     this.categoryId = storedTransaction['c'];
   }
 
+  ///Get JSON transaction
   String get jsonString => JSON.encode({
     "n": this.note, 
     "d": this.date,
@@ -48,12 +50,14 @@ class Category {
   
   Category(this.id, this.name);
   
+  ///Load category from JSON
   Category.fromJSON(String jsonString) {
     Map storedCategory = JSON.decode(jsonString);
     this.id = storedCategory['id'];
     this.name = storedCategory['n'];
   }
   
+  ///Get JSON category
   String get jsonString => JSON.encode({
     "id": this.id,
     "n": this.name});

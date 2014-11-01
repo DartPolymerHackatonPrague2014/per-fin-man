@@ -1,0 +1,47 @@
+<link rel="import" href="packages/polymer/polymer.html">
+<link rel="import" href="packages/core_elements/core_drawer_panel.html">
+<link rel="import" href="packages/core_elements/core_header_panel.html">
+<link rel="import" href="packages/core_elements/core_toolbar.html">
+<link rel="import" href="packages/core_elements/core_item.html">
+<link rel="import" href="packages/core_elements/core_icon.html">
+<link rel="import" href="packages/core_elements/core_icons.html">
+<link rel="import" href="packages/paper_elements/paper_icon_button.html">
+<link rel="import" href="packages/paper_elements/paper_button.html">
+<link rel="import" href="packages/paper_elements/paper_input.html">
+<link rel="import" href="packages/paper_elements/paper_fab.html">
+
+<polymer-element name="perfinman-app">
+  <template>
+    <link rel="stylesheet" href="per_fin_man.css">
+    <core-drawer-panel responsiveWidth="600px" id="drawerPanel">
+      <core-header-panel drawer>
+        <core-toolbar>Menu</core-toolbar>
+        
+      </core-header-panel>
+      <core-header-panel main>
+        <core-toolbar>
+          <paper-icon-button icon="menu" on-click="{{toggleDrawer}}"></paper-icon-button>
+          <span flex>Personal Finance Manager</span>
+          <paper-fab icon="icons:add" on-click={{showNewTransactionInput}}></paper-fab>
+        </core-toolbar>
+        
+        <div class="content">
+          <div id="newTransactionInput">
+            <paper-input floatingLabel id="tran-amount" type="number" min="0" label="Amount"></paper-input><br>
+            <paper-input floatingLabel id="tran-note" type="text" label="Note"></paper-input><br>
+            <paper-input floatingLabel id="tran-date" type="date" label="Date" value=" "></paper-input><br>
+            <paper-button raised>
+              Save
+            </paper-button>
+            <paper-button on-click={{hideNewTransactionInput}}>
+              Cancel
+            </paper-button>
+          </div>
+        </div>
+      </core-header-panel>
+    </core-drawer-panel>
+    
+    
+  </template>
+  <script type="application/dart" src="main.dart"></script>
+</polymer-element>

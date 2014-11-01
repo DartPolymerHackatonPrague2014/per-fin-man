@@ -4,28 +4,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sample app</title>
+    <title>Personal Finance Manager</title>
 
     <!-- include the web_components polyfills with support for Dart. -->
     <script src="packages/web_components/platform.js"></script>
     <script src="packages/web_components/dart_support.js"></script>
 
-    <!-- import the click-counter -->
-    <link rel="import" href="clickcounter.html">
+    <!-- import the perfinman-app -->
+    <link rel="import" href="main.html">
     
-    <link rel="stylesheet" href="per_fin_man.css">
-  </head>
-  <body>
-    <h1>Per fin man</h1>
-    
-    <p>Hello world from Dart!</p>
-    
-    <div id="sample_container_id">
-      <click-counter count="5"></click-counter>
-    </div>
-
     <!-- bootstrap polymer -->
     <script type="application/dart">export 'package:polymer/init.dart';</script>
     <script src="packages/browser/dart.js"></script>
+  </head>
+  <body unresolved>
+  test
+    <perfinman-app></perfinman-app>
   </body>
 </html>
