@@ -5,10 +5,12 @@
 <link rel="import" href="packages/core_elements/core_item.html">
 <link rel="import" href="packages/core_elements/core_icon.html">
 <link rel="import" href="packages/core_elements/core_icons.html">
+<link rel="import" href="packages/paper_elements/paper_checkbox.html">
 <link rel="import" href="packages/paper_elements/paper_icon_button.html">
-<link rel="import" href="packages/paper_elements/paper_button.html">
+<link rel="import" href="packages/paper_elements/paper_toggle_button.html">
 <link rel="import" href="packages/paper_elements/paper_input.html">
 <link rel="import" href="packages/paper_elements/paper_fab.html">
+<link rel="import" href="packages/paper_elements/paper_toast.html">
 
 <polymer-element name="perfinman-app">
   <template>
@@ -26,17 +28,40 @@
         </core-toolbar>
         
         <div class="content">
+          <paper-toast id="toast" class="capsule" text="test" duration="1500"></paper-toast>
           <div id="newTransactionInput">
+            <label>Outcome</label>
+            <paper-toggle-button id="tran-type"></paper-toggle-button>
+            <label>Income</label><br>
             <paper-input floatingLabel id="tran-amount" type="number" min="0" label="Amount"></paper-input><br>
             <paper-input floatingLabel id="tran-note" type="text" label="Note"></paper-input><br>
             <paper-input floatingLabel id="tran-date" type="date" label="Date" value=" "></paper-input><br>
-            <paper-button raised>
+            <button on-click="{{saveTransaction}}">
+              <core-icon icon="check"></core-icon>
               Save
-            </paper-button>
-            <paper-button on-click={{hideNewTransactionInput}}>
+            </button>
+            <button on-click="{{hideNewTransactionInput}}">
+              <core-icon icon="close"> </core-icon>
               Cancel
-            </paper-button>
-          </div>
+            </button>
+          </div> <!-- end of transaction editor -->
+          <table>
+            <thead>
+              <tr>
+                <th>Amount</th>
+                <th>Note</th>
+                <th>Date</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr template repeat="{{item in transactions}}">
+              <td>{{item.amount}}</td>
+                <td>{{item.note}}</td>
+                <td>{{item.date}}</td>
+            </tr>
+          </tbody>
+          </table>
+                    
         </div>
       </core-header-panel>
     </core-drawer-panel>
