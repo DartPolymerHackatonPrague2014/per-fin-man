@@ -58,8 +58,6 @@ class PerFinManApp extends PolymerElement {
     String note = $['tran-note'].value;
     Transaction tr = new Transaction(amount, date, note);
     transactions.add(tr);
-    $['toast'].text="Transaction added";
-    $['toast'].show();
     hideNewTransactionInput();
     //window.localStorage["transactions"] = tr.jsonString;
     saveTransactions();
