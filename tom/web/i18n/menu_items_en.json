@@ -1,0 +1,10 @@
+{"menu_list" : [
+    {"icon": "account-child", "label": "Sign in", "main_page": "signin-element"},
+    {"icon": "add-circle-outline", "label": "Add record", "main_page": "add-element"},
+    {"icon": "list", "label": "View records", "main_page": "list-element"},
+    {"icon": "home", "label": "About", "main_page": "about-page-element"}
+  ],
+  "sub_menu_list": [
+    {"icon": "", "label": "about", "dialog": "about"}
+  ]
+}

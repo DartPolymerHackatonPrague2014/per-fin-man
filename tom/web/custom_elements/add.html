@@ -1,0 +1,65 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<link rel="import" href="packages/core_elements/core_animated_pages.html">
+<link rel="import" href="packages/paper_elements/paper_input.html">
+<link rel="import" href="packages/paper_elements/paper_fab.html">
+<link rel="import" href="localized.html">
+
+<polymer-element name="add-element">
+
+<template>
+  <style>
+    :host {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    #core_animated_pages {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: absolute;
+      background-color: rgb(238, 238, 238);
+    }
+    #core_card {
+      width: 528px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px;
+      box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+      padding: 14px;
+      background-color: rgb(255, 255, 255);
+    }
+    #section {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    
+  </style>
+  
+
+  <core-animated-pages id="core_animated_pages" selectedindex="0" notap>
+    <section id="section" layout horizontal active center-justified center>
+      <core-card id="core_card" layout vertical>
+        <p style="text-align: center;">Record your incomes and expenses.</p>
+        <section layout vertical active center-justified center>
+          <paper-input id="category_input" label="Category" type="text" floatinglabel></paper-input>
+          <paper-input id="amount_input" label="Amount" type="number" floatinglabel></paper-input>
+          <paper-input id="desc_input" label="Description" type="text" floatinglabel></paper-input>
+          <paper-input id="date_input" label="Date" type="date" floatinglabel value=" "></paper-input>
+          <section layout horizontal end-justified>
+            <paper-fab id="paper_fab" icon="check"></paper-fab>
+          </section>
+        </section>
+      </core-card>
+    </section>
+  </core-animated-pages>
+
+</template>
+
+<script type="application/dart" src="add.dart"></script>
+
+</polymer-element>

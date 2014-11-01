@@ -1,0 +1,10 @@
+name: customelement_signin_1
+description: First version about customelement in dart & signin form
+dependencies:
+  core_elements: any
+  intl: any
+  paper_elements: any
+  polymer: any
+transformers:
+- polymer:
+    entry_points: web/index.html

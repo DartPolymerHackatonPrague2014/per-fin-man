@@ -1,0 +1,84 @@
+<link rel="import" href="packages/polymer/polymer.html">
+
+<!-- link rel="import" href="../sortable-table/sortable-table.html" -->
+<link rel="import" href="packages/core_elements/core_animated_pages.html">
+<link rel="import" href="packages/paper_elements/paper_input.html">
+<link rel="import" href="packages/paper_elements/paper_fab.html">
+<link rel="import" href="localized.html">
+
+<polymer-element name="list-element">
+
+<template>
+  <style>
+    :host {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      box-sizing: border-box;
+    }
+    #core_animated_pages {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      position: absolute;
+      background-color: rgb(238, 238, 238);
+    }
+    #core_card {
+      width: 528px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      border-bottom-right-radius: 2px;
+      border-bottom-left-radius: 2px;
+      box-shadow: rgba(0, 0, 0, 0.0980392) 0px 2px 4px, rgba(0, 0, 0, 0.0980392) 0px 0px 3px;
+      padding: 14px;
+      background-color: rgb(255, 255, 255);
+    }
+    #section {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+    #list {
+      width: 100%;
+      border: 1px solid gray;
+      text-align: left;
+    }
+    
+  </style>
+  
+
+  <core-animated-pages id="core_animated_pages" selectedindex="0" notap>
+    <section id="section" layout horizontal active center-justified center>
+      <core-card id="core_card" layout vertical>
+        <p style="text-align: center;">Your expenses (sortable table does not work)</p>
+        <section layout vertical active center-justified center>
+
+        <!-- sorted table nefunguje -->
+        <table id="list">
+          <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Amount</th>
+          </tr>
+          <tr>
+            <td>11.11.2014</td>
+            <td>Food</td>
+            <td>100</td>
+          </tr>
+          <tr>
+            <td>12.11.2014</td>
+            <td>Drinks</td>
+            <td>400</td>
+          </tr>          
+        </table>
+
+        </section>
+      </core-card>
+    </section>
+  </core-animated-pages>
+
+</template>
+
+<script type="application/dart" src="list.dart"></script>
+
+</polymer-element>
